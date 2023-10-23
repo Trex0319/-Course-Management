@@ -17,13 +17,12 @@ const courseSchema = new Schema({
     type: String,
     required: true,
   },
-  instructor: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Instructor",
-      required: true,
-    },
-  ],
+  instructor: {
+    type: Schema.Types.ObjectId,
+    ref: "Instructor",
+    required: true,
+  },
+
   startDate: Date,
   endDate: Date,
   subject: String,
