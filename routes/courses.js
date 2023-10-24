@@ -10,7 +10,14 @@ const Course = require("../models/course");
 */
 router.get("/", async (req, res) => {
   try {
-    res.status(200).send(await Course.find().populate("instructor"));
+    res
+      .status(200)
+      .send(
+        await Course.find().populate({
+          path: "instructor",
+          select: "name qualification profile",
+        })
+      );
   } catch (error) {
     res.status(400).send({ message: "Course not found" });
   }
